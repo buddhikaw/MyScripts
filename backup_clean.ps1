@@ -13,12 +13,13 @@ param (
 [string] $BkpParentFolderPath = $null,
 [int] $RetainLastFolderCount = 2
 )
+#Compulsory to retain at least last two folders
 if ($RetainLastFolderCount -le 2) { $RetainLastFolderCount = 2 }
 write-output  ("Backup Folder path :" + $BkpParentFolderPath)
 write-output  ("Remain Folder Count :" + $RetainLastFolderCount)
 if(Test-Path $BkpParentFolderPath)
 {
-	$items = Get-ChildItem -Path $BkpParentFolderPath -Directory
+	$items = Get-ChildItem -Path $BkpParentFolderPath -Directory | Where-Object {$_.Name -match "\b\d{8,12}\b"}
 	$items = $items.name | sort
 	for($i=0; $i -lt ($items.count - $RetainLastFolderCount); $i++)
 	{
