@@ -1,6 +1,6 @@
 <#
    "Winter Is Coming" - House of Stark
-   Script by : buddhi
+   Script by : Buddhika
    Date : 27/08/2017(Sunday , so don't complain instead let’s improve it)
    Description : Helps to housekeep by removing unnecessary devops backups.
    Backupfolder naming convention should be YYYYMMDDHHmm or YYYYMMDD
